@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Memcache config</title>
+  <link rel = "stylesheet" href = '/static/style.css'/>
+</head>
+<body>
+<div class="topnav">
+  <a class="active" href=" ">Home</a >
+  <a href="chart">Chart</a >
+  <a href="config">Config</a >
+</div>
+<h1> Cache Manager</h1>
+
+<h3>Now the capacity is {{ cap }} MB</h3>
+<h3>Now the replacement policy is {{ rep }}</h3>
+<form method="post" enctype='multipart/form-data'>
+    <label>Change Capacity:</label>
+        <input type='number' name='capacity'>
+    <label>Change Replacement Policy:</label>
+        <input type="text" name="replace">
+    <input  type='submit' name="config_button" value = "update config">
+    <input type="submit" name="clear-cache" value = "clear cache">
+
+  <h2>Pool Configuration</h2>
+  <h4>Select Resizing mode</h4>
+    <input type ="submit" id="manual" name="manual" value="Manual Mode" >
+    <input type ="submit" id="automatic" name = "auto" value="Automatic Mode">
+
+    <h4>Pool Size</h4>
+    <input type = "submit" name="size-button" value="-1"/>
+      <input type = "submit"  name="size-button" value="+1"/>
+    <h4>Pool Node Status</h4>
+    <h4>number of active nodes: {{num_instances}}</h4>
+    <input type ="submit" name ="clear-button" value ="clear all data"/>
+
+  <div style = "padding-top: 20px;" id = "auto">
+    <h4>Auto Scaling Policy</h4>
+    <div class="form-row">
+      <div class = "form-col">
+        <label for="maxMiss">Max Miss Rate threshold</label>
+        <input type = "text" id = "max_rate" name = "max_rate" value = "{{max_Miss}}" class ="typeahead-select">
+        <label for="minMiss">Min Miss Rate threshold</label>
+        <input type = "text" id = "min_rate" name="min_rate" value = "{{min_Miss}}" class ="typeahead-select">
+        <label for="expRatio">Expansion Ratio</label>
+        <input type = "text" id = "exp_ratio" name="exp_ratio" value = "{{exp_ratio}}" class ="typeahead-select">
+        <label for="shrinkRatio">Shrink Ratio</label>
+        <input type = "text" id = "shrink_ratio" name="shrink_ratio" value = "{{shrink_ratio}}" class ="typeahead-select">
+      </div>
+    </div>
+  </div>
+</form>
+</div>
+<script>
+    function showautomatic(){
+         pool_mode = "auto"
+    }
+    function showManual(){
+        pool_mode = "manual"
+    }
+</script>
+</body>
+</html>
