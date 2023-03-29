@@ -1,0 +1,1 @@
+flask --app app run & flask --app ../frontend/run_cache.py run --port 5555 &

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+  <head>
+    <title>Line Chart</title>
+    <script src="https://cdn.anychart.com/releases/8.11.0/js/anychart-base.min.js"></script>
+    <style type="text/css">
+      html, body, #configure {
+        width: 100%; height: 100%; background-color: #ffffff;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="configure"></div>
+    <script>
+      anychart.onDocumentReady(function () {
+        var whole = {{ whole }}
+        var time = {{ time }}
+        for (let i = 0; i < whole.length; i++) {
+          whole[i][0] = Date.UTC(time[i][0], time[i][1], time[i][2], time[i][3], time[i][4], time[i][5]);
+        }
+
+        var ds = anychart.data.set(whole);
+        var num = ds.mapAs({x: 0, value: 1});
+
+        var graph1 = anychart.line();
+        graph1.title("Stats: Number of items in cache");
+
+        var setdatetime = anychart.scales.dateTime();
+        graph1.xScale(setdatetime);
+
+        var temp = graph1.line(num)
+        temp.name("Number of items");
+        temp.stroke("#000000");
+        graph1.legend().enabled(true);
+        graph1.container("configure");
+        graph1.draw();
+      });
+    </script>
+    <div id="configure2"></div>
+    <script>
+  anychart.onDocumentReady(function () {
+    var whole = {{ whole }}
+    var time = {{ time }}
+    for (let i = 0; i < whole.length; i++) {
+      whole[i][0] = Date.UTC(time[i][0], time[i][1], time[i][2], time[i][3], time[i][4], time[i][5]);
+    }
+
+    var ds = anychart.data.set(whole);
+    var size = ds.mapAs({x: 0, value: 2});
+
+    var graph2 = anychart.line();
+    graph2.title("Stats: Total size of items in cache");
+
+    var setdatetime = anychart.scales.dateTime();
+    graph2.xScale(setdatetime);
+
+    var temp = graph2.line(size)
+    temp.name("Size of items");
+    temp.stroke("#00cc99");
+    graph2.legend().enabled(true);
+    graph2.container("configure");
+    graph2.draw();
+  });
+</script>
+<div id="configure3"></div>
+<script>
+  anychart.onDocumentReady(function () {
+    var whole = {{ whole }}
+    var time = {{ time }}
+    for (let i = 0; i < whole.length; i++) {
+      whole[i][0] = Date.UTC(time[i][0], time[i][1], time[i][2], time[i][3], time[i][4], time[i][5]);
+    }
+
+    var ds = anychart.data.set(whole);
+    var request = ds.mapAs({x: 0, value: 3});
+
+    var graph3 = anychart.line();
+    graph3.title("Stats: Number of requests served");
+
+    var setdatetime = anychart.scales.dateTime();
+    graph3.xScale(setdatetime);
+
+    var temp = graph3.line(request)
+    temp.name("Number of requests");
+    temp.stroke("#ff00ff");
+    graph3.legend().enabled(true);
+    graph3.container("configure");
+    graph3.draw();
+  });
+</script>
+<div id="configure4"></div>
+<script>
+  anychart.onDocumentReady(function () {
+    var whole = {{ whole }}
+    var time = {{ time }}
+    for (let i = 0; i < whole.length; i++) {
+      whole[i][0] = Date.UTC(time[i][0], time[i][1], time[i][2], time[i][3], time[i][4], time[i][5]);
+    }
+    var ds = anychart.data.set(whole);
+    var miss = ds.mapAs({x: 0, value: 4});
+
+    var graph4 = anychart.line();
+    graph4.title("Stats: Miss rate");
+
+    var setdatetime = anychart.scales.dateTime();
+    graph4.xScale(setdatetime);
+
+    var temp = graph4.line(miss);
+    temp.name("Miss rate");
+    temp.stroke("#33cc33");
+    graph4.legend().enabled(true);
+    graph4.container("configure");
+    graph4.draw();
+  });
+</script>
+<div id="configure5"></div>
+<script>
+  anychart.onDocumentReady(function () {
+    var whole = {{ whole }}
+    var time = {{ time }}
+    for (let i = 0; i < whole.length; i++) {
+      whole[i][0] = Date.UTC(time[i][0], time[i][1], time[i][2], time[i][3], time[i][4], time[i][5]);
+    }
+    var ds = anychart.data.set(whole);
+    var hit = ds.mapAs({x: 0, value: 5});
+
+    var graph5 = anychart.line();
+    graph5.title("Stats: Hit rate");
+
+    var setdatetime = anychart.scales.dateTime();
+    graph5.xScale(setdatetime);
+
+    var temp = graph5.line(hit);
+    temp.name("Hit rate");
+    temp.stroke("#e62e00");
+    graph5.legend().enabled(true);
+    graph5.container("configure");
+    graph5.draw();
+  });
+</script>
+  </body>
+</html>

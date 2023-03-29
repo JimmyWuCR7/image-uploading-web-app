@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<head>
+    <title>Very simple memcache</title>
+</head>
+<style>
+.button {
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.button1 {
+  background-color: white;
+  color: black;
+  border: 2px solid #4CAF50;
+}
+
+.button1:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.button2 {
+  background-color: white;
+  color: black;
+  border: 2px solid #008CBA;
+}
+
+.button2:hover {
+  background-color: #008CBA;
+  color: white;
+}
+body {
+            text-align: center;
+        }
+p{
+    margin-top: 5%;
+    font-size : 1.4em;
+}
+
+
+</style>
+<html>
+    <body>
+        <form >
+            <button class="button button1" formaction="/api/upload">Upload Photo</button>
+
+            <button class="button button1" formaction="/api/list_keys">List All Keys</button>
+
+
+            <button class="button button2" formaction="cache">Cache Setting</button>
+
+
+            <button class="button button2" formaction="show">Search Photo</button>
+
+
+            <button class="button button2" formaction="stats">Show Stats</button>
+        </form>
+
+
+    <body>    
+</html>

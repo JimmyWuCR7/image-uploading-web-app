@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<style>
+td {
+            text-align: center;
+
+        }
+form{
+    margin-top: 5%;
+    font-size : 28px;
+}
+
+</style>
+<table id="data" class="table table-striped">
+    <thead>
+      <tr>
+        <th>Key</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for key in key_list %}
+        <tr>
+          <td>{{ key }}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</html>
